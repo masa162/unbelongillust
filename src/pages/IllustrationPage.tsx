@@ -16,18 +16,13 @@ export default function IllustrationPage() {
     }
   }, [slug]);
 
-  const fetchIllustration = async (slug: string) => {
+  const fetchIllustration = async (idOrSlug: string) => {
     try {
-      // 全イラストを取得して slug で検索
-      const response = await illustrationsApi.list();
+      // IDまたはSlugで直接取得
+      const response = await illustrationsApi.get(idOrSlug);
+      
       if (response.data.success && response.data.data) {
-        const found = response.data.data.find(ill => ill.slug === slug);
-        
-        if (!found) {
-          setError('イラストが見つかりませんでした');
-          setLoading(false);
-          return;
-        }
+        const found = response.data.data;
 
         if (found.status !== 'published') {
           setError('このイラストは公開されていません');
@@ -44,6 +39,8 @@ export default function IllustrationPage() {
             setWork(workResponse.data.data);
           }
         }
+      } else {
+        setError('イラストが見つかりませんでした');
       }
     } catch (error) {
       console.error('Failed to fetch illustration:', error);
