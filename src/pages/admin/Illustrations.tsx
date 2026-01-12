@@ -73,7 +73,25 @@ export default function AdminIllustrations() {
   return (
     <div>
       <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ margin: 0 }}>イラスト管理</h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <h2 style={{ margin: 0 }}>イラスト管理</h2>
+          <a
+            href="https://unbelong-hono-admin.pages.dev/illustrations/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: '0.4rem 0.8rem',
+              background: '#28a745',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '4px',
+              fontSize: '0.875rem',
+              fontWeight: 600
+            }}
+          >
+            + 新規投稿
+          </a>
+        </div>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           <button
             onClick={() => setFilter('all')}
