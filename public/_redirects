@@ -1,0 +1,5 @@
+/*
+  SPA routing for Cloudflare Pages
+  All routes should serve index.html
+*/
+/* /index.html 200
